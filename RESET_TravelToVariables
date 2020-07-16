@@ -1,0 +1,61 @@
+#CLASS 0
+#VAR LastSP {} {} VAR
+#VAR TravelToJump {} {} VAR
+
+#VAR TravelToWestArda {} {} VAR
+#ADDI TravelToWestArda "Belegost"
+#ADDI TravelToWestArda "GreyHavens"
+#ADDI TravelToWestArda "Bywater"
+#ADDI TravelToWestArda "Hobbiton"
+#ADDI TravelToWestArda "Bree"
+#ADDI TravelToWestArda "Rivendell"
+#ADDI TravelToWestArda "Druwaur"
+#ADDI TravelToWestArda "Adornas"
+
+#VAR TravelToEastArda {} {} VAR
+#ADDI TravelToEastArda "Rhosgobel"
+#ADDI TravelToEastArda "Thranduils"
+#ADDI TravelToEastArda "Erebor"
+#ADDI TravelToEastArda "Dale"
+#ADDI TravelToEastArda "Esgaroth"
+#ADDI TravelToEastArda "Laketown"
+#ADDI TravelToEastArda "IronHillsCity"
+#ADDI TravelToEastArda "AlzhakUrk"
+#ADDI TravelToEastArda "Lothlorien"
+#ADDI TravelToEastArda "DolGuldur"
+#ADDI TravelToEastArda "Edoras"
+#ADDI TravelToEastArda "Calenhad"
+#ADDI TravelToEastArda "WestOsgiliath"
+#ADDI TravelToEastArda "Morgulduin"
+#ADDI TravelToEastArda "MinasTirith"
+#ADDI TravelToEastArda "Pelargir"
+#ADDI TravelToEastArda "Linhir"
+#ADDI TravelToEastArda "DolAmroth"
+#ADDI TravelToEastArda "NorthKadar"
+#ADDI TravelToEastArda "SouthKadar"
+#ADDI TravelToEastArda "NorthOutpost"
+#ADDI TravelToEastArda "SouthOutpost"
+#ADDI TravelToEastArda "DharanSar"
+#ADDI TravelToEastArda "Umbar"
+
+#VAR TravelToFarHarad {} {} VAR
+#ADDI TravelToFarHarad "Tarzhayan"
+#ADDI TravelToFarHarad "Khemnahr"
+#ADDI TravelToFarHarad "Asubuhi"
+#ADDI TravelToFarHarad "Telshar"
+#ADDI TravelToFarHarad "Tavorus"
+#ADDI TravelToFarHarad "Turseg"
+#ADDI TravelToFarHarad "Azmaroth"
+#ADDI TravelToFarHarad "WestAzmaroth"
+#ADDI TravelToFarHarad "Azrakadar"
+#ADDI TravelToFarHarad "Azrazayan"
+
+#VAR TravelToArda {} {} VAR
+#FORALL @TravelToWestArda {#ADDI TravelToArda %i}
+#FORALL @TravelToEastArda {#ADDI TravelToArda %i}
+
+#VAR TravelTo {} {} VAR
+#FORALL @TravelToWestArda {#ADDI TravelTo %i}
+#FORALL @TravelToEastArda {#ADDI TravelTo %i}
+#FORALL @TravelToFarHarad {#ADDI TravelTo %i}
+#CLASS 0
