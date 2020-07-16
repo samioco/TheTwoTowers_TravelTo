@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_TravelToEXE#CLASS 0#AL RESET_TravelToEXE {#CLASS 0
 $CLASS = "Tools|TravelTo|EXE"
 
 #AL TQ {travelto resume quickly} $CLASS
@@ -84,7 +84,7 @@ $destination=%lower(@TravelToJump)
     #T+ TravelToOutpostJump
     #WALK TarSP
   }
-
+  
 } ($roomID=%lower("TarSP")) {
   #SW (%ismember($destination,%lower(@TravelToFarHarad))) {
     #IF ($destination!="tarzhayan") {#EXE {@TravelToJump}}
@@ -94,8 +94,8 @@ $destination=%lower(@TravelToJump)
   } (%ismember($destination,%lower(@TravelToArda))) {
     #T+ TravelToOutpostJump
     #WALK NOUT
-  }
-
+  } 
+  
 } (%ismember($roomID,%lower(@ROOMS_Signposts_FH_ID))) {
   #T+ TravelToOutpostJump
   Tarzhayan
@@ -105,4 +105,4 @@ $destination=%lower(@TravelToJump)
 }
 } $CLASS
 
-#CLASS 0
+#CLASS 0} _TravelTo#CLASS 0

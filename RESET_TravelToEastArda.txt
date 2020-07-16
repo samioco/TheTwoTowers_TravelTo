@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_TravelToEastArda#CLASS 0#AL RESET_TravelToEastArda {#CLASS 0
 $CLASS = "Tools|TravelTo|EastArdaSignposts"
 #AL Rhosgobel {
 $destinationID=%lower("Rhos")
@@ -523,4 +523,4 @@ $roomName=%roomname()
 #AL Dharan {DharanSar} $CLASS
 #AL DHSP {DharanSar} $CLASS
 
-#CLASS 0
+#CLASS 0} _TravelTo#CLASS 0

@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_TravelToVariables#CLASS 0#AL RESET_TravelToVariables {#CLASS 0
 #VAR LastSP {} {} VAR
 #VAR TravelToJump {} {} VAR
 
@@ -59,3 +59,4 @@
 #FORALL @TravelToEastArda {#ADDI TravelTo %i}
 #FORALL @TravelToFarHarad {#ADDI TravelTo %i}
 #CLASS 0
+} _TravelTo#CLASS 0

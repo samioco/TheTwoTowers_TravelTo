@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_TravelToFarHarad#CLASS 0#AL RESET_TravelToFarHarad {#CLASS 0
 $CLASS = "Tools|TravelTo|FarHaradSignposts"
 //Far Harad Travel
 #AL Tarzhayan {
@@ -122,4 +122,4 @@ $roomID=%lower(%roomid())
 #AL Azraz {Azrazayan} $CLASS
 #AL AzrazSP {Azrazayan} $CLASS
 
-#CLASS 0
+#CLASS 0} _TravelTo#CLASS 0

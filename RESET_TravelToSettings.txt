@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_TravelToSettings#CLASS 0#AL RESET_TravelToSettings {#CLASS 0
 $CLASS = "Tools|TravelTo|inTravelTo"
 #CLASS $CLASS
 #T- $CLASS
@@ -25,4 +25,4 @@ TravelToOutpostJump @TravelToJump
 } $CLASS
 #T- TravelToOutpostJump
 
-#CLASS 0
+#CLASS 0} _TravelTo#CLASS 0
