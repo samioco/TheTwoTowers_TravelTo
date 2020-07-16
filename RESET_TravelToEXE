@@ -1,0 +1,108 @@
+#CLASS 0
+$CLASS = "Tools|TravelTo|EXE"
+
+#AL TQ {travelto resume quickly} $CLASS
+#AL TR {travelto resume} $CLASS
+#AL TRES {travelto resume} $CLASS
+#AL TV {travelto reverse quickly} $CLASS
+#AL TREV {travelto reverse quickly} $CLASS
+#AL TRET {travelto return quickly} $CLASS
+#AL TSTAT {INFO SPnum: @SPNum, spid: @spid, LastSP, @LastSP} $CLASS
+
+#AL TravelToErrorMsg {
+#IF ((%lower(%roomid())=%lower(%0)) || (%lower(%roomname())=%lower(%0))) {#ECHO Already there!
+} {#ECHO TravelTo Path Create Error!}
+} $CLASS
+
+#AL TravelToCreate {
+//param: list of signposts in order of traversal
+$param=%lower(%trim(%0))
+$exe="travelto"
+#IF ($param) {
+#FORALL $param {
+  $EXE = %concat($exe," ",%i)
+  #IF ((%ismember(%i,$param)) < (%numitems($param))) {$EXE = %concat($exe," then")}
+}
+$EXE = %concat($exe," quickly")
+#EXE {$exe}
+} {SysMsg TravelToCreate: Requires argument: ~<list of signposts~>}
+} $CLASS
+
+#AL SignpostCheck {
+$room=%1
+$exits=%replace(%2,"and","|")
+$exits=%replace($exits,",","|")
+$exits=%replace($exits," ")
+$roomID=%mapquery(%concat("Name=",~",$room,~"))
+$signpostID=""
+#IF (%roomID) {$signpostID=%roomid($roomID)}
+
+//#ECHO SignpostCheck: Room: $room, Exits: $exits
+#SW (($room="Outside Rhosgobel") AND (%numitems($exits)=7)) {$signpostID="Rhos"
+} (($room="A stone bridge") && (%ismember("n",$exits)) && (%ismember("s",$exits)) && (%ismember("e",$exits)) && (%ismember("ne",$exits)) && (%ismember("nw",$exits))) {$signpostID="RivSP"
+} ((%1="A wide road") && (%numitems($exits)=3) && (%ismember("s",$exits)) && (%ismember("e",$exits)) && (%ismember("w",$exits)) && (!%ismember("n",$exits)) && (!%ismember("se",$exits))) {$signpostID="AzmSP"
+} (($room="A dirty road") && (%numitems($exits)=2) && (%ismember("n",$exits)) && (%ismember("s",$exits))) {$signpostID="TavSP"
+}  (($room="The White Mountains") && (%numitems($exits=4)) && (%ismember("u",$exits))) {$signpostID="Calenhad"
+}
+#IF (%ismember(%lower($signpostID),%lower(@ROOMS_Signposts_ID))) {
+  #VAR LastSP {$signpostID} {} VAR
+  MyProfileVars
+  INFO {Signpost: %roomid(@LastSP): $room}
+}
+#SW ((%class("TravelTo|inTravelTo")) || (%roomid()="EventIn")) {
+  TE @LastSP
+  #T- LoginPositioning
+}
+} $CLASS
+
+#AL TravelToOutpostJump {
+#VAR TravelToJump {%trim(%0)} {} VAR
+$roomID=%lower(%roomid())
+$destination=%lower(@TravelToJump)
+#ECHO TravelToOutpostJump Destination: @TravelToJump
+#T- TravelToOutpostJump
+#SW ($roomID=%lower("NOUT")) {
+  #SW (%ismember($destination,%lower("SouthOutpost|DharanSar"))) {
+    #T+ TravelToOutpostJump
+    #WALK SOUT
+  } (($destination!=%lower("NorthOutpost")) && (%ismember($destination,%lower(@TravelToArda)))) {
+    #EXE {@TravelToJump}
+  } (%ismember($destination,%lower(@TravelToFarHarad))) {
+    #T+ TravelToOutpostJump
+    #WALK TarSP
+  }
+
+} ($roomID=%lower("SOUT")) {
+  #SW (($destination!=%lower("SouthOutpost")) && (%ismember($destination,%lower("DharanSar")))) {
+    #EXE {@TravelToJump}
+  } (%ismember($destination,%lower("SouthOutpost"))) {
+    #ECHO Already at SouthOutpost!
+  } (%ismember($destination,%lower(@TravelToArda))) {
+    #T+ TravelToOutpostJump
+    #WALK NOUT
+  } (%ismember($destination,%lower(@TravelToFarHarad))) {
+    #T+ TravelToOutpostJump
+    #WALK TarSP
+  }
+
+} ($roomID=%lower("TarSP")) {
+  #SW (%ismember($destination,%lower(@TravelToFarHarad))) {
+    #IF ($destination!="tarzhayan") {#EXE {@TravelToJump}}
+  } (%ismember($destination,%lower("SouthOutpost|DharanSar"))) {
+    #T+ TravelToOutpostJump
+    #WALK SOUT
+  } (%ismember($destination,%lower(@TravelToArda))) {
+    #T+ TravelToOutpostJump
+    #WALK NOUT
+  }
+
+} (%ismember($roomID,%lower(@ROOMS_Signposts_FH_ID))) {
+  #T+ TravelToOutpostJump
+  Tarzhayan
+} (%ismember($roomID,%lower(@ROOMS_Signposts_Arda_ID))) {
+  #T+ TravelToOutpostJump
+  Outpost
+}
+} $CLASS
+
+#CLASS 0
