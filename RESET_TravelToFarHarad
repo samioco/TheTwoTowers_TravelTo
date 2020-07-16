@@ -1,0 +1,125 @@
+#CLASS 0
+$CLASS = "Tools|TravelTo|FarHaradSignposts"
+//Far Harad Travel
+#AL Tarzhayan {
+$destinationID=%lower("TarSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("KhSP|TavSP|TelSP|AsuSP"))) {TravelToCreate "tarzhayan"
+} (%ismember($roomID,%lower("AzmSP|AzrakSP|TurSP"))) {TravelToCreate "khemnahr|tarzhayan"
+} (%ismember($roomID,%lower("AzmwSP|AzrazSP"))) {TravelToCreate "azrakadar|khemnahr|tarzhayan"
+} (%ismember($roomID,%lower("azrazs|AzmwSP"))) {TravelToCreate "azrakadar|khemnahr|tarzhayan"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Tarzhayan"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Tarz {Tarzhayan} $CLASS
+#AL TarSP {Tarzhayan} $CLASS
+
+#AL Khemnahr {
+$destinationID=%lower("KHSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AzrakSP|AzmSP|TurSP|TarSP|TelSP|AsuSP|TavSP"))) {TravelToCreate "khemnahr"
+} (%ismember($roomID,%lower("AzmwSP|AzrazSP"))) {TravelToCreate "azrakadar|khemnahr"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Khemnahr"
+} {TravelToErrorMsg $roomID}} $CLASS
+#AL KH {Khemnahr} $CLASS
+#AL KHSP {Khemnahr} $CLASS
+
+#AL Asubuhi {
+$destinationID=%lower("AsuSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("KhSP|TavSP|TelSP|TarSP"))) {TravelToCreate "asubuhi"
+} (%ismember($roomID,%lower("TurSP|AzmSP|AzrakSP"))) {TravelToCreate "khemnahr|asubuhi"
+} (%ismember($roomID,%lower("AzmwSP|AzrazSP"))) {TravelToCreate "azrakadar|khemnahr|asubuhi"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Asubuhi"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Asu {Asubuhi} $CLASS
+#AL AsuSP {Asubuhi} $CLASS
+
+#AL Telshar {
+$destinationID=%lower("TelSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("KhSP|TavSP|AsuSP|TarSP|TelSP"))) {TravelToCreate "telshar"
+} (%ismember($roomID,%lower("AzmSP|TurSP|AzrakSP"))) {TravelToCreate "khemnahr|telshar"
+} (%ismember($roomID,%lower("AzmwSP|AzrazSP"))) {TravelToCreate "azrakadar|khemnahr|telshar"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Telshar"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL tel {Telshar} $CLASS
+#AL TelSP {Telshar} $CLASS
+
+#AL Tavorus {
+$destinationID=%lower("TavSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("KhSP|AsuSP|TelSP|TarSP"))) {TravelToCreate "tavorus"
+} (%ismember($roomID,%lower("AzmSP|TurSP|AzrakSP"))) {TravelToCreate "khemnahr|tavorus"
+} (%ismember($roomID,%lower("AzrazSP|AzmwSP"))) {TravelToCreate "azrakadar|khemnahr|telshar"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Tavorus"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Tav {Tavorus} $CLASS
+#AL TavSP {Tavorus} $CLASS
+
+#AL Turseg {
+$destinationID=%lower("TurSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AzrakSP|AzmSP|KhSP"))) {TravelToCreate "turseg"
+} (%ismember($roomID,%lower("TarSP|AsuSP|TelSP|TavSP"))) {TravelToCreate "khemnahr|turseg"
+} (%ismember($roomID,%lower("AzmwSP|AzrazSP"))) {TravelToCreate "azrakadar|turseg"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Turseg"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Tur {Turseg} $CLASS
+#AL TurSP {Turseg} $CLASS
+
+#AL Azmaroth {
+$destinationID=%lower("AzmSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AzrakSP|AzrazSP"))) {AzmarothWest
+} (%ismember($roomID,%lower("AzrazSP|AzrakSP|TurSP|KhSP"))) {TravelToCreate "azmaroth"
+} (%ismember($roomID,%lower("TarSP|AsuSP|TelSP|TavSP"))) {TravelToCreate "khemnahr|azmaroth"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Azmaroth"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL AzmSP {Azmaroth} $CLASS
+#AL Azm {Azmaroth} $CLASS
+
+#AL WestAzmaroth {
+$destinationID=%lower("AzmWSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AzrakSP|AzrazSP"))) {TravelToCreate "azmaroth"
+} (%ismember($roomID,%lower("KhSP|TurSP"))) {TravelToCreate "azrakadar|azmaroth"
+} (%ismember($roomID,%lower("AzmSP"))) {TravelToCreate "turseg|azrakadar|azmaroth"
+} (%ismember($roomID,%lower("TarSP|AsuSP|TelSP|TavSP"))) {TravelToCreate "khemnahr|azrakadar|azmaroth"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "WestAzmaroth"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL AzmarothWest {WestAzmaroth} $CLASS
+#AL AzmWSP {WestAzmaroth} $CLASS
+#AL AzmW {WestAzmaroth} $CLASS
+
+#AL Azrakadar {
+$destinationID=%lower("AzrakSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AzmwSP|AzrazSP|TurSP|KhSP"))) {TravelToCreate "azrakadar"
+} (%ismember($roomID,%lower("TarSP|AsuSP|TelSP|TavSP"))) {TravelToCreate "khemnahr|azrakadar"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Azrakadar"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Azrak {Azrakadar} $CLASS
+#AL AzrakSP {Azrakadar} $CLASS
+
+#AL Azrazayan {
+$destinationID=%lower("AzrazSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AzrakSP|AzmwSP"))) {TravelToCreate "azrazayan"
+} (%ismember($roomID,%lower("KhSP"))) {TravelToCreate "azrakadar|azrazayan"
+} (%ismember($roomID,%lower("AzmSP"))) {TravelToCreate "turseg|azrakadar|azrazayan"
+} (%ismember($roomID,%lower("TarSP|AsuSP|TelSP|TavSP"))) {TravelToCreate "khemnahr|azrakadar|azrazayan"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Azrazayan"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Azraz {Azrazayan} $CLASS
+#AL AzrazSP {Azrazayan} $CLASS
+
+#CLASS 0
