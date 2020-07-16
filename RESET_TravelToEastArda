@@ -1,0 +1,526 @@
+#CLASS 0
+$CLASS = "Tools|TravelTo|EastArdaSignposts"
+#AL Rhosgobel {
+$destinationID=%lower("Rhos")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("RivSP|Thran|DgSP|Loth"))) {TravelToCreate "rhosgobel"
+} (%ismember($roomID,%lower("EreSP|EsgSP|DaleSP"))) {TravelToCreate "Thranduils|rhosgobel"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|Thranduils|rhosgobel"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel"
+} (%ismember($roomID,%lower("DruSP"))) {TravelToCreate "Bree|rivendell|rhosgobel"
+} (%ismember($roomID,%lower("AdSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Rhosgobel"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Rhos {Rhosgobel} $CLASS
+
+#AL Thranduils {
+$destinationID=%lower("Thran")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("Rhos|EreSP|DaleSP|EsgSP"))) {TravelToCreate "thranduils"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils"
+} (%ismember($roomID,%lower("RivSP|Loth|DgSP"))) {TravelToCreate "rhosgobel|thranduils"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel|thranduils"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel|thranduils"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Thranduils"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Thran {Thranduils} $CLASS
+
+#AL Erebor {
+$destinationID=%lower("EreSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("Thran|EsgSP|DaleSP|ALSP|IHSP"))) {TravelToCreate "erebor"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "thranduils|erebor"
+} (%ismember($roomID,%lower("RivSP|Lothsp|DgSP"))) {TravelToCreate "rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel|thranduils|erebor"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel|thranduils|erebor"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Erebor"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL EreSP {Erebor} $CLASS
+#AL Ere {Erebor} $CLASS
+
+#AL Dale {
+$destinationID=%lower("DaleSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("EreSP|Thran|EsgSP"))) {TravelToCreate "dale"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|dale"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "thranduils|dale"
+} (%ismember($roomID,%lower("RivSP|Loth|DgSP"))) {TravelToCreate "rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel|thranduils|dale"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel|thranduils|dale"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Dale"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL daleSP {Dale} $CLASS
+
+#AL Esgaroth {
+$destinationID=%lower("EsgSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("Thran|EreSP|daleSP"))) {TravelToCreate "esgaroth"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|esgaroth"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "thranduils|esgaroth"
+} (%ismember($roomID,%lower("RivSP|Lothsp|DgSP"))) {TravelToCreate "rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel|thranduils|esgaroth"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel|thranduils|esgaroth"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Esgaroth"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Esg {Esgaroth} $CLASS
+#AL EsgSP {Esgaroth} $CLASS
+#AL LakeTown {Esgaroth} $CLASS
+
+#AL AlzhakUrk {
+$destinationID=%lower("ALSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("EreSP|IHSP"))) {TravelToCreate "alzhak"
+} (%ismember($roomID,%lower("Thran|EsgSP|daleSP"))) {TravelToCreate "erebor|alzhak"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("RivSP|Loth|DgSP"))) {TravelToCreate "rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel|thranduils|erebor|alzhak"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "AlzhakUrk"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Alzhak {AlzhakUrk} $CLASS
+#AL ALSP {AlzhakUrk} $CLASS
+#AL Alz {AlzhakUrk} $CLASS
+
+#AL IronHillsCity {
+$destinationID=%lower("IHSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("EreSP|ALSP"))) {TravelToCreate "ironhillscity"
+} (%ismember($roomID,%lower("Thran|EsgSP|daleSP"))) {TravelToCreate "erebor|ironhillscity"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("RivSP|Loth|DgSP"))) {TravelToCreate "rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("EdoSP|Morg"))) {TravelToCreate "dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|rhosgobel|thranduils|erebor|ironhillscity"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "IronHillsCity"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL IronHills {IronHillsCity} $CLASS
+#AL IHSP {IronHillsCity} $CLASS
+#AL IHC {IronHillsCity} $CLASS
+
+#AL Lothlorien {
+$destinationID=%lower("Loth")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("Rhos|DgSP|EdoSP|RivSP"))) {TravelToCreate "lothlorien"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|lothlorien"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|lothlorien"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|lothlorien"
+} (%ismember($roomID,%lower("AdSP|DruSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|lothlorien"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|lothlorien"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|lothlorien"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|lothlorien"
+
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "dolguldur|lothlorien"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur|lothlorien"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur|lothlorien"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur|lothlorien"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Lothlorien"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Loth {Lothlorien} $CLASS
+#AL LothSP {Lothlorien} $CLASS
+#AL Lorien {Lothlorien} $CLASS
+
+#AL DolGuldur {
+$destinationID=%lower("DGSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("Rhos|Loth|Morg|EdoSP"))) {TravelToCreate "dolguldur"
+} (%ismember($roomID,%lower("RivSP|Thran"))) {TravelToCreate "rhosgobel|dolguldur"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|dolguldur"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|dolguldur"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|dolguldur"
+} (%ismember($roomID,%lower("DruSP|AdSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras|dolguldur"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "osgiliath|dolguldur"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath|dolguldur"
+} (%ismember($roomID,%lower("LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath|dolguldur"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath|dolguldur"
+} (%ismember($roomID,%lower("NOUT|CorSP"))) {TravelToCreate "kadar|northgate|osgiliath|dolguldur"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "DolGuldur"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL DGSP {DolGuldur} $CLASS
+#AL DG {DolGuldur} $CLASS
+
+#AL Edoras {
+$destinationID=%lower("EdoSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("AdSP|DruSP|Loth|DgSP|WOSG|MTSP|Calenhad"))) {TravelToCreate "edoras"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|edoras"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|edoras"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|edoras"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|edoras"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|druwaur|edoras"
+} (%ismember($roomID,%lower("PelSP|LinSP|DASP"))) {TravelToCreate "minastirith|edoras"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "pelargir|minastirith|edoras"
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "kadar|pelargir|minastirith|edoras"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir|minastirith|edoras"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|pelargir|minastirith|edoras"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Edoras"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL EdoSP {Edoras} $CLASS
+#AL Edo {Edoras} $CLASS
+
+#AL Calenhad {
+$destinationID=%lower("Calenhad")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("EdoSP|WOSG|MTSP"))) {TravelToCreate "calenhad"
+} (%ismember($roomID,%lower("AdSP|DruSP|Loth|DgSP|WOSG|MTSP"))) {TravelToCreate "edoras|calenhad"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|edoras"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|edoras|calenhad"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|edoras|calenhad"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|edoras|calenhad"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|calenhad"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|calenhad"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|calenhad"
+} (%ismember($roomID,%lower("PelSP|LinSP|DASP"))) {TravelToCreate "minastirith|calenhad"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "pelargir|minastirith|calenhad"
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "kadar|pelargir|minastirith|calenhad"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir|minastirith|calenhad"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|pelargir|minastirith|calenhad"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Calenhad"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Calen {Calenhad} $CLASS
+#AL MercSP {Calenhad} $CLASS
+#AL Merc {Calenhad} $CLASS
+
+#AL MinasTirith {
+$destinationID=%lower("MTSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("EdoSP|WOSG|PelSP|LinSP|DASP|Calenhad"))) {TravelToCreate "minastirith"
+} (%ismember($roomID,%lower("DruSP|Loth|DgSP|AdSP"))) {TravelToCreate "edoras|minastirith"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|edoras|minastirith"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|edoras|minastirith"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|edoras|minastirith"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|edoras|minastirith"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith"
+} (%ismember($roomID,%lower("HobSP|RivSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith"
+} (%ismember($roomID,%lower("GreySP|BelSP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "pelargir|minastirith"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir|minastirith"
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "kadar|pelargir|minastirith"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|pelargir|minastirith"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "MinasTirith"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL MT {MinasTirith} $CLASS
+#AL MTSP {MinasTirith} $CLASS
+
+#AL WestOsgiliath {
+$destinationID=%lower("WOSG")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("EdoSP|MTSP|Calenhad"))) {TravelToCreate "osgiliath"
+} (%ismember($roomID,%lower("DgSP|Loth|DruSP|AdSP"))) {TravelToCreate "edoras|osgiliath"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|osgiliath"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|osgiliath"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|osgiliath"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|edoras|osgiliath"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel dolguldur|edoras|osgiliath"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|edoras|osgiliath"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|edoras|osgiliath"
+} (%ismember($roomID,%lower("PelSP|LinSP|DASP"))) {TravelToCreate "minastirith|osgiliath"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "pelargir|minastirith|osgiliath"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir|minastirith|osgiliath"
+} (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar|northgate|pelargir|minastirith|osgiliath"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "WestOsgiliath"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL WOSG {WestOsgiliath} $CLASS
+
+#AL Morgulduin {
+$destinationID=%lower("Morg")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("Nkad|DgSP"))) {TravelToCreate "osgiliath"
+} (%ismember($roomID,%lower("Rhos|Loth"))) {TravelToCreate "dolguldur|osgiliath"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("RivSP"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "rivendell|rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("HobSP"))) {TravelToCreate "Bree|rivendell|rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|rivendell|rhosgobel|dolguldur|osgiliath"
+} (%ismember($roomID,%lower("DruSP|AdSP"))) {TravelToCreate "edoras|minastirith|pelargir|kadar|osgiliath"
+} (%ismember($roomID,%lower("PelSP"))) {TravelToCreate "kadar|osgiliath"
+} (%ismember($roomID,%lower("EdoSP|Calenhad"))) {TravelToCreate "minastirith|pelargir|kadar|osgiliath"
+} (%ismember($roomID,%lower("MTSP|LinSP|DASP"))) {TravelToCreate "pelargir|kadar|osgiliath"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|osgiliath"
+} (%ismember($roomID,%lower("NOUT|CorSP"))) {TravelToCreate "kadar|northgate|osgiliath"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Morgulduin"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Morg {Morgulduin} $CLASS
+#AL MorgSP {Morgulduin} $CLASS
+#AL Ithilien {Morgulduin} $CLASS
+#AL IthilienSP {Morgulduin} $CLASS
+
+#AL Pelargir {
+$destinationID=%lower("PelSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("MTSP|Nkad|LinSP|DASP"))) {TravelToCreate "pelargir"
+} (%ismember($roomID,%lower("WOSG|EdoSP|Calenhad"))) {TravelToCreate "minastirith|pelargir"
+} (%ismember($roomID,%lower("Loth|DruSP|AdSP"))) {TravelToCreate "edoras|minastirith|pelargir"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|pelargir"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|pelargir"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|pelargir"
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "kadar|pelargir"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar|pelargir"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar|pelargir"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar|pelargir"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar|pelargir"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar|pelargir"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir"
+} (%ismember($roomID,%lower("NOUT|CorSP"))) {TravelToCreate "kadar|northgate|pelargir"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Pelargir"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Pel {Pelargir} $CLASS
+#AL PelSP {Pelargir} $CLASS
+
+#AL Linhir {
+$destinationID=%lower("LinSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("DASP|PelSP|MTSP"))) {TravelToCreate "linhir"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "pelargir|linhir"
+} (%ismember($roomID,%lower("WOSG|EdoSP|Calenhad"))) {TravelToCreate "minastirith|linhir"
+} (%ismember($roomID,%lower("DruSP|AdSP|Loth"))) {TravelToCreate "edoras|minastirith|linhir"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|linhir"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|linhir"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|linhir"
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "kadar|pelargir|linhir"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar|pelargir|linhir"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar|pelargir|linhir"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar|pelargir|linhir"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar|pelargir|linhir"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar|pelargir|linhir"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir|linhir"
+} (%ismember($roomID,%lower("NOUT|CorSP"))) {TravelToCreate "kadar|northgate|pelargir|linhir"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Linhir"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Lin {Linhir} $CLASS
+#AL LinSP {Linhir} $CLASS
+
+
+#AL DolAmroth {
+$destinationID=%lower("DASP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("LinSP|PelSP|MTSP"))) {TravelToCreate "dolamroth"
+} (%ismember($roomID,%lower("WOSG|EdoSP|Calenhad"))) {TravelToCreate "minastirith|dolamroth"
+} (%ismember($roomID,%lower("DruSP|AdSP|Loth"))) {TravelToCreate "edoras|minastirith|dolamroth"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|dolamroth"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|dolamroth"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|dolamroth"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "pelargir|dolamroth"
+} (%ismember($roomID,%lower("Morg"))) {TravelToCreate "kadar|pelargir|dolamroth"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar|pelargir|dolamroth"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar|pelargir|dolamroth"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar|pelargir|dolamroth"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar|pelargir|dolamroth"
+} (%ismember($roomID,%lower("ALSP|IHSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar|pelargir|dolamroth"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate|pelargir|dolamroth"
+} (%ismember($roomID,%lower("NOUT|CorSP"))) {TravelToCreate "kadar|northgate|pelargir|dolamroth"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "DolAmroth"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL DASP {DolAmroth} $CLASS
+
+#AL NorthKadar {
+$destinationID=%lower("NKAD")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("PelSP|Morg"))) {TravelToCreate "kadar"
+} (%ismember($roomID,%lower("MTSP|LinSP|DASP"))) {TravelToCreate "pelargir|kadar"
+} (%ismember($roomID,%lower("EdoSP|WOSG|Calenhad"))) {TravelToCreate "minastirith|pelargir|kadar"
+} (%ismember($roomID,%lower("DruSP|AdSP|Loth"))) {TravelToCreate "edoras|minastirith|pelargir|kadar"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|pelargir|kadar"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|pelargir|kadar"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|pelargir|kadar"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar"
+} (%ismember($roomID,%lower("Skad"))) {TravelToCreate "northgate"
+} (%ismember($roomID,%lower("NOUT|CorSP"))) {TravelToCreate "kadar|northgate"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "NorthKadar"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL NorthGate {NorthKadar} $CLASS
+#AL NKAD {NorthKadar} $CLASS
+
+#AL SouthKadar {
+$destinationID=%lower("SKAD")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("CorSP|NOUT"))) {TravelToCreate "kadar"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "southgate"
+} (%ismember($roomID,%lower("PelSP|Morg"))) {TravelToCreate "kadar|southgate"
+} (%ismember($roomID,%lower("LinSP|DASP|MTSP"))) {TravelToCreate "pelargir|kadar|southgate"
+} (%ismember($roomID,%lower("EdoSP|WOSG|Calenhad"))) {TravelToCreate "minastirith|pelargir|kadar|southgate"
+} (%ismember($roomID,%lower("DruSP|AdSP|Loth"))) {TravelToCreate "edoras|minastirith|pelargir|kadar|southgate"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|pelargir|kadar|southgate"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|pelargir|kadar|southgate"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|pelargir|kadar|southgate"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar|southgate"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar|southgate"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar|southgate"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar|southgate"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar|southgate"
+} (%ismember($roomID,%lower("SOUT|DhSP"))) {TravelToOutpostJump "SouthKadar"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "SouthKadar"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL SouthGate {SouthKadar} $CLASS
+#AL SKAD {SouthKadar} $CLASS
+
+#AL Kadar {
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("NOUT|SOUT|CorSP|DhSP"))) {SouthKadar
+} (%ismember($roomID,%lower(@ROOMS_Signposts_WestArda_ID))) {NorthKadar
+} (%ismember($roomID,%lower(@ROOMS_Signposts_Arda_ID))) {NorthKadar
+} (%ismember($roomID,%lower(@ROOMS_Signposts_FH_ID))) {SouthKadar
+} {TravelToErrorMsg $roomID}
+
+} $CLASS
+#AL Kad {Kadar} $CLASS
+
+#AL NorthOutpost {
+$destinationID=%lower("NOUT")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("CorSP|Skad"))) {TravelToCreate "outpost"
+} (%ismember($roomID,%lower("Nkad"))) {TravelToCreate "southgate|outpost"
+} (%ismember($roomID,%lower("Morg|PelSP"))) {TravelToCreate "kadar|southgate|outpost"
+} (%ismember($roomID,%lower("MTSP|LinSP|DASP"))) {TravelToCreate "pelargir|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("WOSG|EdoSP|Calenhad"))) {TravelToCreate "minastirith|pelargir|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("DruSP|AdSP|Loth"))) {TravelToCreate "edoras|minastirith|pelargir|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|pelargir|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|pelargir|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|pelargir|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar|southgate|outpost"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar|southgate|outpost"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "NorthOutpost"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL NOUT {NorthOutpost} $CLASS
+
+#AL SouthOutpost {
+$destinationID=%lower("SOUT")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("DhSP"))) {TravelToCreate "outpost"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "SouthOutpost"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL SOUT {SouthOutpost} $CLASS
+
+#AL Outpost {
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("DHSP|SOUT"))) {SouthOutpost
+} (%ismember($roomID,%lower(@ROOMS_Signposts_WestArda_ID))) {NorthOutpost
+} (%ismember($roomID,%lower(@ROOMS_Signposts_Arda_ID))) {NorthOutpost
+} (%ismember($roomID,%lower(@ROOMS_Signposts_FH_ID))) {NorthOutpost
+} {TravelToErrorMsg $roomID}
+} $CLASS
+
+#AL Umbar {
+$destinationID=%lower("CorSP")
+$roomID=%lower(%roomid())
+#SW (%ismember($roomID,%lower("NOUT|SKAD"))) {TravelToCreate "umbar"
+} (%ismember($roomID,%lower("NKAD"))) {TravelToCreate "southgate|umbar"
+} (%ismember($roomID,%lower("PelSP|Morg"))) {TravelToCreate "kadar|southgate|umbar"
+} (%ismember($roomID,%lower("DASP|LinSP|MTSP"))) {TravelToCreate "pelargir|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("EdoSP|WOSG|Calenhad"))) {TravelToCreate "minastirith|pelargir|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("DruSP|AdSP|Loth"))) {TravelToCreate "edoras|minastirith|pelargir|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("Bree"))) {TravelToCreate "druwaur|edoras|minastirith|pelargir|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("RivSP|HobSP"))) {TravelToCreate "Bree|druwaur|edoras|minastirith|pelargir|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("BelSP|GreySP"))) {TravelToCreate "bywater|Bree|druwaur|edoras|minastirith|pelargir|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("DgSP"))) {TravelToCreate "osgiliath|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("Rhos"))) {TravelToCreate "dolguldur|osgiliath|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("Thran"))) {TravelToCreate "rhosgobel|dolguldur|osgiliath|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("EreSP|daleSP|EsgSP"))) {TravelToCreate "thranduils|rhosgobel|dolguldur|osgiliath|kadar|southgate|umbar"
+} (%ismember($roomID,%lower("IHSP|ALSP"))) {TravelToCreate "erebor|thranduils|rhosgobel|dolguldur|osgiliath|kadar|southgate|umbar"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "Umbar"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL CorKeep {Umbar} $CLASS
+#AL UmSP {Umbar} $CLASS
+
+
+#AL DharanSar {
+$destinationID=%lower("DHSP")
+$roomID=%lower(%roomid())
+$roomName=%roomname()
+#SW (%ismember($roomID,%lower("SOUT"))) {TravelToCreate "dharan-sar"
+} ((%ismember($roomID,%lower(@ROOMS_Signposts_ID))) && ($roomID!=$destinationID)) {TravelToOutpostJump "DharanSar"
+} {TravelToErrorMsg $roomID}
+} $CLASS
+#AL Dharan {DharanSar} $CLASS
+#AL DHSP {DharanSar} $CLASS
+
+#CLASS 0
