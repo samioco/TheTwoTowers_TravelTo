@@ -1,0 +1,28 @@
+#CLASS 0
+$CLASS = "Tools|TravelTo|inTravelTo"
+#CLASS $CLASS
+#T- $CLASS
+#CLASS 0
+
+$CLASS = "Tools|TravelTo|Settings"
+#TR SignpostCheck {^({@ROOMS_Signposts})~((*)~)} {
+SignpostCheck %1 %2
+} $CLASS
+
+#TR {TravelTo: Journey begun!} {#T+ inTravelTo} $CLASS
+#TR {TravelTo: resuming journey.} {#T+ inTravelTo} $CLASS
+#TR {TravelTo: Destination reached!} {#T- inTravelTo} $CLASS
+
+#TR {TravelTo can only be used at a signpost.} {#T- inTravelTo;#T- TravelToOutpostJump} $CLASS
+#TR {TravelTo: no such destination from here.} {#T- inTravelTo;#T- TravelToOutpostJump} $CLASS
+#TR {No TravelTo route to resume.} {#T- inTravelTo;#T- TravelToOutpostJump} $CLASS
+#TR {You can only resume in the room you stopped in.} {#T- inTravelTo;#T- TravelToOutpostJump} $CLASS
+#TR {TravelTo: aborted!} {#T- inTravelTo} $CLASS
+#TR {Too many locations!  Sure you know where you're going?} {#T- inTravelTo;#T- TravelToOutpostJump} $CLASS
+
+#TR TravelToOutpostJump {({"Before the gates of Tul-Tarzhayan|The northern gate of an outpost|Outside the Southern gate of an outpost"})} {
+TravelToOutpostJump @TravelToJump
+} $CLASS
+#T- TravelToOutpostJump
+
+#CLASS 0
